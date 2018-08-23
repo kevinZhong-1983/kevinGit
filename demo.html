@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+    <div id="ele"></div>
+
+    <div class="dragWrap">
+
+        <div style="width: 100px;height: 100px;background-color: black" draggable="true" class="drag-item"></div>
+        <div style="width: 100px;height: 100px;background-color: black" draggable="true" class="drag-item"></div>
+
+    </div>
+
+    <div class="cacheEle">
+        <div data-type="cRightDown" class="dragDot cRightDown"></div>
+        <div data-type="cLeftDown" class="dragDot cLeftDown"></div>
+        <div data-type="cRightUp" class="dragDot cRightUp"></div>
+        <div data-type="cLeftUp" class="dragDot cLeftUp"></div>
+        <div data-type="cRight" class="dragDot cRight"></div>
+        <div data-type="cDown" class="dragDot cDown"></div>
+        <div data-type="cLeft" class="dragDot cLeft"></div>
+        <div data-type="cUp" class="dragDot cUp"></div>
+    </div>
+
+    <script src="jquery2.0.3.js"></script>
+
+
+    <script>
+
+
+        var $container = $('#ele');   //移入的容器
+        var $dragItem = $('.drag-item'); // 可以拖动的元素
+        var eleDrag = null; //当前被拖动的元素
+
+        var endPosition = {left : '', top : ''};  // 放开元素时的鼠标坐标
+        $dragItem.on('selectstart',function(){
+            return false;
+        });
+
+
+
+        $dragItem.on('dragstart',function(ev){
+            // 拖拽开始
+            ev.originalEvent.dataTransfer.effectAllowed = 'move';
+            eleDrag = ev.target;
+            return true;
+        }).on('dragend',function(ev){
+            eleDrag = null;
+            return false;
+        });
+
+        $container.on('dragover',function(ev){
+            ev.preventDefault();
+            return true;
+        }).on('dragenter',function(ev){
+
+            $(this).toggleClass('active');
+            return true;
+        }).on('drop',function(ev){
+            endPosition.left = ev.originalEvent.x;
+            endPosition.top = ev.originalEvent.y;
+
+            if(eleDrag){
+                setHtml(eleDrag)
+            }
+            $(this).toggleClass('active');
+        });
+
+        function setHtml(eleDrag){
+
+            var src = $(eleDrag).attr('src');
+            var $img = $('<img>');
+            var $dragEle = $('<div>');
+            var directionBtn = $('.cacheEle').html();
+            //var cloneStyle=$('eleDrag').css("background-color",'black')
+
+            //console.log(cloneStyle)
+
+
+
+            $img.attr('src',$(eleDrag).attr('src')).attr('data-type','drag');
+
+            $dragEle.addClass('drag');
+//            $dragEle.attr('data-type','drag').html($img);
+
+            $dragEle.html('<div>')
+            $dragEle.css({"background-color":'black'})
+            $dragEle.append(directionBtn);
+
+            $dragEle.css({
+
+                'left' : endPosition.left - (100/2),
+                'top' : endPosition.top - (100/2),
+            });
+            $container.append($dragEle);
+
+        }
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>
