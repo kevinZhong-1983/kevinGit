@@ -1,0 +1,182 @@
+body { max-width:10rem;}
+html, body, section { width: 100%; height: 100%; position: relative; }
+* { padding: 0; margin: 0; -webkit-tap-highlight-color: transparent; -webkit-appearance: none; }
+
+.main{
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: darkgrey;
+    overflow: hidden;
+
+}
+
+.platform{
+
+    z-index: 101;
+    overflow: hidden;
+    position:relative;
+    width: 8rem;
+    height: 6rem;
+    background-color: black;
+    margin: 0 auto;
+    margin-top: .5rem;
+
+}
+
+.shoe-platform {
+
+    height:6rem;
+    width:8rem;
+    text-align: center;
+}
+
+
+.platform .sticker-control-del{
+
+    display: none;
+    position: absolute;
+    height:.69333rem;
+    width:.69333rem;
+
+    top:-.34667rem;
+    left:-.34667rem;
+    background: url('../images/platform/control_delete.png');
+    background-size: contain;
+
+}
+.platform .sticker-control-move{
+
+    display: none;
+    position: absolute;
+    height:.69333rem;
+    width:.69333rem;
+    top:-.34667rem;
+    right:-.34667rem;
+    background: url('../images/platform/control_move.png');
+    background-size: contain;
+
+
+}
+
+.platform .sticker-control-scale {
+    display: none;
+    position: absolute;
+    height:.69333rem;
+    width:.69333rem;
+    bottom:-.34667rem;
+    right:-.34667rem;
+    background: url('../images/platform/control_scale.png');
+    background-size: contain;
+}
+
+
+.shoe-sticker {
+
+    padding: 2px;
+}
+
+.sticker-control-img {
+
+    width: 100%;
+    height: 100%;
+
+}
+.shoe-sticker.isActive {
+
+
+    border: 2px solid #fff;
+    padding: 0;
+
+}
+
+.shoe-sticker.isActive .sticker-control-del{
+
+    display: block;
+}
+.shoe-sticker.isActive .sticker-control-move{
+
+    display: block;
+}
+.shoe-sticker.isActive .sticker-control-scale {
+
+    display: block;
+}
+
+
+
+
+/*.platform .sticker-control-del {*/
+    /*top:-.34667rem;*/
+    /*left:-.34667rem;*/
+    /*background: url('../images/platform/control_delete.png');*/
+    /*background-size: contain;*/
+/*}*/
+/*.platform .sticker-control-move {*/
+    /*top:-.34667rem;*/
+    /*right:-.34667rem;*/
+    /*background: url('../images/platform/control_move.png');*/
+    /*background-size: contain;*/
+/*}*/
+/*.platform .sticker-control-scale {*/
+    /*bottom:-.34667rem;*/
+    /*right:-.34667rem;*/
+    /*background: url('../images/platform/control_scale.png');*/
+    /*background-size: contain;*/
+/*}*/
+
+
+
+.stickers{
+
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    background-color: black;
+    bottom: 0rem;
+
+
+}
+
+.sticker {
+
+    position: relative;
+    margin-top: .3rem;
+    /*margin-right: .25rem;*/
+    /*padding: .15rem;*/
+    background-color:white;
+    border-radius: .25rem;
+
+}
+
+.sticker img {
+
+    width: 2rem;
+    height: 2rem;
+
+
+
+}
+
+.swiper-slide {
+
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
+    /*-webkit-box-pack: center;*/
+    /*-ms-flex-pack: center;*/
+    /*-webkit-justify-content: center;*/
+    /*justify-content: center;*/
+    /*-webkit-box-align: center;*/
+    /*-ms-flex-align: center;*/
+    /*-webkit-align-items: center;*/
+    /*align-items: center;*/
+}
+
